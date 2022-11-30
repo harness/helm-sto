@@ -15,10 +15,10 @@ version: 0.3.0
 appVersion: "0.0.1"
 
 dependencies:
-  - name: ff-service
+  - name: sto-core
     version: 0.2.x
     repository: "file://sto-core"
 
-  - name: ff-pushpin-service
+  - name: sto-manager
     version: 0.2.x
     repository: "file://sto-manager"
