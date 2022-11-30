@@ -1,0 +1,9 @@
+dependencies:
+- name: ff-service
+  repository: file://sto-core
+  version: 0.2.9
+- name: ff-pushpin-service
+  repository: file://sto-manager
+  version: 0.2.13
+digest: sha256:fbcb4089ae0f3318c9d1f165ccc857f9cfbe43ca33ef3261f5e459243ed8e8dd
+generated: "2022-12-01T00:09:13.817289+05:30"
