@@ -1,5 +1,5 @@
 apiVersion: v2
-name: harness-sto
+name: sto
 description: A Helm chart for harness STO module
 
 type: application
