@@ -1,0 +1,87 @@
+# Default values for sto-core.
+# This is a YAML-formatted file.
+replicaCount: 1
+maxSurge: 100%
+maxUnavailable: 0
+
+retryMigrations: true
+
+image:
+  registry: docker.io
+  repository: harness/stocore-signed
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v1.13.3"
+  digest: ""
+
+## -- initContainer for Harness application waits
+waitForInitContainer:
+  image:
+    registry: docker.io
+    repository: harness/helm-init-container
+    pullPolicy: IfNotPresent
+    tag: "latest"
+    digest: ""
+
+stoAppHarnessToken:
+  name: harness-secrets
+  key: stoAppHarnessToken
+
+stoAppAuditJWTSecret:
+  name: harness-secrets
+  key: stoAppAuditJWTSecret
+
+# Postgres secret value and key
+postgresPassword:
+  name: postgres
+  key: postgres-password
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: "harness-default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 4000
+
+resources:
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  requests:
+    cpu: 500m
+    memory: 500Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

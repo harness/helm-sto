@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sto-core
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "sto-core.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: {{.Values.maxSurge}}
+      maxUnavailable: {{.Values.maxUnavailable}}
+  selector:
+    matchLabels:
+      {{- include "sto-core.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sto-core.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sto-core.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      - name: wait-for-postgres
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=postgres"
+      containers:
+        - name: sto-core
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: APP_HARNESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.stoAppHarnessToken.name }}
+                key: {{ .Values.stoAppHarnessToken.key }}
+          - name: APP_AUDIT_JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.stoAppAuditJWTSecret.name }}
+                key: {{ .Values.stoAppAuditJWTSecret.key }}
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.postgresPassword.name }}
+                key: {{ .Values.postgresPassword.key }}
+          - name: APP_DATABASE_DATASOURCE
+            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+          - name: APP_DB_MIGRATION_DATASOURCE
+            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+          {{- if .Values.retryMigrations }}
+          - name: APP_DATABASE_RETRY_MIGRATION
+            value: "1"
+          {{- end }}
+          envFrom:
+          - configMapRef:
+              name: sto-core
+          ports:
+            - name: http
+              containerPort: {{.Values.service.port}}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/v2/system/health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/v2/system/health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 30
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - sto-core
+            topologyKey: "kubernetes.io/hostname"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
