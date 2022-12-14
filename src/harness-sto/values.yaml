@@ -15,7 +15,7 @@ sto-core:
     repository: harness/stocore-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v1.13.3"
+    tag: "v1.14.4"
     digest: ""
 
   ## -- initContainer for Harness application waits
@@ -90,7 +90,15 @@ sto-core:
 
   affinity: {}
 
+
 sto-manager:
+  # Default values for sto-manager
+  # This is a YAML-formatted file.
+  # Declare variables to be passed into your templates.
+  global:
+    loadbalancerURL: "https://test"
+    delegate:
+      airgapped: false
   replicaCount: 1
   maxSurge: 100%
   maxUnavailable: 0
@@ -120,6 +128,22 @@ sto-manager:
       repository: harness/sto-plugin
       pullPolicy: IfNotPresent
       tag: latest
+      digest: ""
+
+  addOnImage:
+    image:
+      registry: docker.io
+      repository: harness/ci-addon
+      pullPolicy: IfNotPresent
+      tag: "1.14.19"
+      digest: ""
+
+  leImage:
+    image:
+      registry: docker.io
+      repository: harness/ci-lite-engine
+      pullPolicy: IfNotPresent
+      tag: "1.14.22"
       digest: ""
 
   s3UploadImage:
