@@ -2,7 +2,7 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
 
 ## Usage
 
@@ -30,7 +30,7 @@ dependencies:
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.13.3"` |  |
+| sto-core.image.tag | string | `"v1.14.4"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
@@ -59,6 +59,11 @@ dependencies:
 | sto-core.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | sto-core.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | sto-core.waitForInitContainer.image.tag | string | `"latest"` |  |
+| sto-manager.addOnImage.image.digest | string | `""` |  |
+| sto-manager.addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
+| sto-manager.addOnImage.image.registry | string | `"docker.io"` |  |
+| sto-manager.addOnImage.image.repository | string | `"harness/ci-addon"` |  |
+| sto-manager.addOnImage.image.tag | string | `"1.14.19"` |  |
 | sto-manager.affinity | object | `{}` |  |
 | sto-manager.autoscaling.enabled | bool | `true` |  |
 | sto-manager.autoscaling.maxReplicas | int | `2` |  |
@@ -66,6 +71,8 @@ dependencies:
 | sto-manager.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | sto-manager.defaultInternalImageConnector | string | `"test"` |  |
 | sto-manager.fullnameOverride | string | `""` |  |
+| sto-manager.global.delegate.airgapped | bool | `false` |  |
+| sto-manager.global.loadbalancerURL | string | `"https://test"` |  |
 | sto-manager.image.digest | string | `""` |  |
 | sto-manager.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.image.registry | string | `"docker.io"` |  |
@@ -80,6 +87,11 @@ dependencies:
 | sto-manager.ingress.tls | list | `[]` |  |
 | sto-manager.java.memory | int | `2500` |  |
 | sto-manager.java.memoryLimit | int | `600` |  |
+| sto-manager.leImage.image.digest | string | `""` |  |
+| sto-manager.leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
+| sto-manager.leImage.image.registry | string | `"docker.io"` |  |
+| sto-manager.leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
+| sto-manager.leImage.image.tag | string | `"1.14.22"` |  |
 | sto-manager.maxSurge | string | `"100%"` |  |
 | sto-manager.maxUnavailable | int | `0` |  |
 | sto-manager.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |

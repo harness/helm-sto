@@ -3,6 +3,8 @@
 # Declare variables to be passed into your templates.
 global:
   loadbalancerURL: "https://test"
+  delegate:
+    airgapped: false
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
@@ -32,6 +34,22 @@ securityImage:
     repository: harness/sto-plugin
     pullPolicy: IfNotPresent
     tag: latest
+    digest: ""
+
+addOnImage:
+  image:
+    registry: docker.io
+    repository: harness/ci-addon
+    pullPolicy: IfNotPresent
+    tag: "1.14.19"
+    digest: ""
+
+leImage:
+  image:
+    registry: docker.io
+    repository: harness/ci-lite-engine
+    pullPolicy: IfNotPresent
+    tag: "1.14.22"
     digest: ""
 
 s3UploadImage:
