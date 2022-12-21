@@ -90,3 +90,8 @@ Create the name of the s3 image to use
 {{- define "sto-manager.leImage" -}}
 {{ include "common.images.image" (dict "imageRoot" .Values.leImage.image "global" .Values.global) }}
 {{- end }}
+
+
+{{- define "sto-manager.pullSecrets" -}}
+{{ include "common.images.pullSecrets" (dict "images" (list .Values.image .Values.waitForInitContainer.image .Values.securityImage.image .Values.addOnImage.image .Values.leImage.image .Values.s3UploadImage.image) "global" .Values.global ) }}
+{{- end -}}

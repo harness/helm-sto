@@ -1,6 +1,6 @@
 # sto-manager
 
-![Version: 0.2.16](https://img.shields.io/badge/Version-0.2.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
+![Version: 0.2.18](https://img.shields.io/badge/Version-0.2.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -15,6 +15,7 @@ A Helm chart for Kubernetes
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | addOnImage.image.digest | string | `""` |  |
+| addOnImage.image.imagePullSecrets | list | `[]` |  |
 | addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | addOnImage.image.registry | string | `"docker.io"` |  |
 | addOnImage.image.repository | string | `"harness/ci-addon"` |  |
@@ -27,8 +28,10 @@ A Helm chart for Kubernetes
 | defaultInternalImageConnector | string | `"test"` |  |
 | fullnameOverride | string | `""` |  |
 | global.delegate.airgapped | bool | `false` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/stomanager-signed"` |  |
@@ -43,6 +46,7 @@ A Helm chart for Kubernetes
 | java.memory | int | `2500` |  |
 | java.memoryLimit | int | `600` |  |
 | leImage.image.digest | string | `""` |  |
+| leImage.image.imagePullSecrets | list | `[]` |  |
 | leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | leImage.image.registry | string | `"docker.io"` |  |
 | leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
@@ -78,12 +82,14 @@ A Helm chart for Kubernetes
 | resources.requests.cpu | int | `1` |  |
 | resources.requests.memory | string | `"3Gi"` |  |
 | s3UploadImage.image.digest | string | `""` |  |
+| s3UploadImage.image.imagePullSecrets | list | `[]` |  |
 | s3UploadImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | s3UploadImage.image.registry | string | `"docker.io"` |  |
 | s3UploadImage.image.repository | string | `"bewithaman/s3"` |  |
 | s3UploadImage.image.tag | string | `"latest"` |  |
 | securityContext | object | `{}` |  |
 | securityImage.image.digest | string | `""` |  |
+| securityImage.image.imagePullSecrets | list | `[]` |  |
 | securityImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | securityImage.image.registry | string | `"docker.io"` |  |
 | securityImage.image.repository | string | `"harness/sto-plugin"` |  |
@@ -100,6 +106,7 @@ A Helm chart for Kubernetes
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | tolerations | list | `[]` |  |
 | waitForInitContainer.image.digest | string | `""` |  |
+| waitForInitContainer.image.imagePullSecrets | list | `[]` |  |
 | waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
