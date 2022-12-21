@@ -5,6 +5,7 @@ global:
   loadbalancerURL: "https://test"
   delegate:
     airgapped: false
+  imagePullSecrets: []
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
@@ -12,6 +13,7 @@ maxUnavailable: 0
 java:
   memory: 2500
   memoryLimit: 600
+
 image:
   registry: docker.io
   repository: harness/stomanager-signed
@@ -19,6 +21,7 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "77800-000"
   digest: ""
+  imagePullSecrets: []
 
 waitForInitContainer:
   image:
@@ -27,6 +30,7 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
+    imagePullSecrets: []
 
 securityImage:
   image:
@@ -35,6 +39,7 @@ securityImage:
     pullPolicy: IfNotPresent
     tag: latest
     digest: ""
+    imagePullSecrets: []
 
 addOnImage:
   image:
@@ -43,6 +48,7 @@ addOnImage:
     pullPolicy: IfNotPresent
     tag: "1.14.19"
     digest: ""
+    imagePullSecrets: []
 
 leImage:
   image:
@@ -51,6 +57,7 @@ leImage:
     pullPolicy: IfNotPresent
     tag: "1.14.22"
     digest: ""
+    imagePullSecrets: []
 
 s3UploadImage:
   image:
@@ -59,6 +66,7 @@ s3UploadImage:
     pullPolicy: IfNotPresent
     tag: latest
     digest: ""
+    imagePullSecrets: []
 
 mongoSecrets:
   userName:
