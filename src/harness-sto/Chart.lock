@@ -4,6 +4,6 @@ dependencies:
   version: 0.2.13
 - name: sto-manager
   repository: file://../sto-manager
-  version: 0.2.19
-digest: sha256:7856380fa48b3673f95df19837f4d4cfe260017aaba4dda4142c0ab4e58f44ab
-generated: "2023-02-02T14:40:35.735714-05:00"
+  version: 0.2.20
+digest: sha256:4f6ef38d48370d61aaaef5a8dcfb8ccb24bb374342fccd2c51d63f0d85ee9f59
+generated: "2023-02-06T15:00:30.739342-05:00"
