@@ -21,6 +21,23 @@ entries:
   sto:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2023-02-06T21:36:16.152656442Z"
+    dependencies:
+    - name: sto-core
+      repository: file://../sto-core
+      version: 0.2.x
+    - name: sto-manager
+      repository: file://../sto-manager
+      version: 0.2.x
+    description: A Helm chart for harness STO module
+    digest: fdc70c9e8bbb49d12c64880f521d775c186e1261f7ab94904744d0141f987486
+    name: sto
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto/releases/download/sto-0.3.6/sto-0.3.6.tgz
+    version: 0.3.6
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2023-02-02T19:42:50.402499014Z"
     dependencies:
     - name: sto-core
@@ -148,4 +165,4 @@ entries:
     urls:
     - https://github.com/harness/helm-sto/releases/download/sto-manager-0.2.18/sto-manager-0.2.18.tgz
     version: 0.2.18
-generated: "2023-02-02T19:42:50.402519816Z"
+generated: "2023-02-06T21:36:16.152699342Z"
