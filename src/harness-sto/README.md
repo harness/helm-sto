@@ -2,7 +2,7 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart to your Helm chart:
 dependencies:
     - name: harness-sto
       repository: https://harness.github.io/helm-sto
-      version: <no value>
+      version: 0.4.0
 ```
 
 ## Values
@@ -30,7 +30,7 @@ dependencies:
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.14.4"` |  |
+| sto-core.image.tag | string | `"v1.20.5"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
@@ -77,7 +77,7 @@ dependencies:
 | sto-manager.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.image.registry | string | `"docker.io"` |  |
 | sto-manager.image.repository | string | `"harness/stomanager-signed"` |  |
-| sto-manager.image.tag | string | `"77800-000"` |  |
+| sto-manager.image.tag | string | `"78800-000"` |  |
 | sto-manager.ingress.annotations | object | `{}` |  |
 | sto-manager.ingress.className | string | `""` |  |
 | sto-manager.ingress.enabled | bool | `false` |  |
