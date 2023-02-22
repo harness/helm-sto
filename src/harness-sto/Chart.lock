@@ -1,9 +1,9 @@
 dependencies:
 - name: sto-core
   repository: file://../sto-core
-  version: 0.2.15
+  version: 0.2.16
 - name: sto-manager
   repository: file://../sto-manager
-  version: 0.2.20
-digest: sha256:47ddbbae4befafd4d09d4fcb148507943f3a39522eceb2305a7a8946af9d0634
-generated: "2023-02-06T16:27:05.408207-05:00"
+  version: 0.2.21
+digest: sha256:7dfc92e10e81b44021a89cd7c651ee38e6c4a1e6c400a75062169aa77f58bcf6
+generated: "2023-02-22T18:42:51.32183-05:00"

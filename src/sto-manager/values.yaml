@@ -19,7 +19,7 @@ image:
   repository: harness/stomanager-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "78800-000"
+  tag: "79000-000"
   digest: ""
   imagePullSecrets: []
 
