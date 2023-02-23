@@ -30,7 +30,7 @@ dependencies:
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.20.5"` |  |
+| sto-core.image.tag | string | `"v1.31.3"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
@@ -77,7 +77,7 @@ dependencies:
 | sto-manager.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.image.registry | string | `"docker.io"` |  |
 | sto-manager.image.repository | string | `"harness/stomanager-signed"` |  |
-| sto-manager.image.tag | string | `"78800-000"` |  |
+| sto-manager.image.tag | string | `"79000-000"` |  |
 | sto-manager.ingress.annotations | object | `{}` |  |
 | sto-manager.ingress.className | string | `""` |  |
 | sto-manager.ingress.enabled | bool | `false` |  |
