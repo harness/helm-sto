@@ -87,7 +87,7 @@ fullnameOverride: ""
 ngServiceAccount: "test"
 redislabsCATruststore: "test"
 
-defaultInternalImageConnector: "test"
+defaultInternalImageConnector: "account.harnessImage"
 
 serviceAccount:
   # Specifies whether a service account should be created
