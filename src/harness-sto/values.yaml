@@ -135,7 +135,7 @@ sto-manager:
       registry: docker.io
       repository: harness/ci-addon
       pullPolicy: IfNotPresent
-      tag: "1.14.19"
+      tag: "1.16.1-linux-amd64"
       digest: ""
 
   leImage:
@@ -143,7 +143,7 @@ sto-manager:
       registry: docker.io
       repository: harness/ci-lite-engine
       pullPolicy: IfNotPresent
-      tag: "1.14.22"
+      tag: "1.16.1-linux-amd64"
       digest: ""
 
   s3UploadImage:

@@ -19,7 +19,7 @@ A Helm chart for Kubernetes
 | addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | addOnImage.image.registry | string | `"docker.io"` |  |
 | addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| addOnImage.image.tag | string | `"1.14.19"` |  |
+| addOnImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `true` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -50,7 +50,7 @@ A Helm chart for Kubernetes
 | leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | leImage.image.registry | string | `"docker.io"` |  |
 | leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| leImage.image.tag | string | `"1.14.22"` |  |
+| leImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |

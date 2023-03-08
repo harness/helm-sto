@@ -63,7 +63,7 @@ dependencies:
 | sto-manager.addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.addOnImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| sto-manager.addOnImage.image.tag | string | `"1.14.19"` |  |
+| sto-manager.addOnImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
 | sto-manager.affinity | object | `{}` |  |
 | sto-manager.autoscaling.enabled | bool | `true` |  |
 | sto-manager.autoscaling.maxReplicas | int | `2` |  |
@@ -91,7 +91,7 @@ dependencies:
 | sto-manager.leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.leImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| sto-manager.leImage.image.tag | string | `"1.14.22"` |  |
+| sto-manager.leImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
 | sto-manager.maxSurge | string | `"100%"` |  |
 | sto-manager.maxUnavailable | int | `0` |  |
 | sto-manager.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
