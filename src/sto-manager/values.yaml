@@ -46,7 +46,7 @@ addOnImage:
     registry: docker.io
     repository: harness/ci-addon
     pullPolicy: IfNotPresent
-    tag: "1.14.19"
+    tag: "1.16.4"
     digest: ""
     imagePullSecrets: []
 
@@ -55,7 +55,7 @@ leImage:
     registry: docker.io
     repository: harness/ci-lite-engine
     pullPolicy: IfNotPresent
-    tag: "1.14.22"
+    tag: "1.16.4"
     digest: ""
     imagePullSecrets: []
 
@@ -114,7 +114,7 @@ securityContext: {}
 probes:
   livenessProbe:
     httpGet:
-      path: /health
+      path: /health/liveness
       port: http
     timeoutSeconds: 2
     periodSeconds: 5

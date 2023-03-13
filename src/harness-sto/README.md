@@ -2,7 +2,7 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.5.3](https://img.shields.io/badge/Version-0.5.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79000](https://img.shields.io/badge/AppVersion-0.0.79000-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart to your Helm chart:
 dependencies:
     - name: harness-sto
       repository: https://harness.github.io/helm-sto
-      version: 0.4.0
+      version: 0.5.3
 ```
 
 ## Values
@@ -63,13 +63,13 @@ dependencies:
 | sto-manager.addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.addOnImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| sto-manager.addOnImage.image.tag | string | `"1.14.19"` |  |
+| sto-manager.addOnImage.image.tag | string | `"1.16.4"` |  |
 | sto-manager.affinity | object | `{}` |  |
 | sto-manager.autoscaling.enabled | bool | `true` |  |
 | sto-manager.autoscaling.maxReplicas | int | `2` |  |
 | sto-manager.autoscaling.minReplicas | int | `1` |  |
 | sto-manager.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| sto-manager.defaultInternalImageConnector | string | `"test"` |  |
+| sto-manager.defaultInternalImageConnector | string | `"account.harnessImage"` |  |
 | sto-manager.fullnameOverride | string | `""` |  |
 | sto-manager.global.delegate.airgapped | bool | `false` |  |
 | sto-manager.global.loadbalancerURL | string | `"https://test"` |  |
@@ -91,7 +91,7 @@ dependencies:
 | sto-manager.leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.leImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| sto-manager.leImage.image.tag | string | `"1.14.22"` |  |
+| sto-manager.leImage.image.tag | string | `"1.16.4"` |  |
 | sto-manager.maxSurge | string | `"100%"` |  |
 | sto-manager.maxUnavailable | int | `0` |  |
 | sto-manager.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
