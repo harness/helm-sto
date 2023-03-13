@@ -1,6 +1,6 @@
 # sto-manager
 
-![Version: 0.2.20](https://img.shields.io/badge/Version-0.2.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
+![Version: 0.2.24](https://img.shields.io/badge/Version-0.2.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -19,13 +19,13 @@ A Helm chart for Kubernetes
 | addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | addOnImage.image.registry | string | `"docker.io"` |  |
 | addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| addOnImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
+| addOnImage.image.tag | string | `"1.16.4"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `true` |  |
 | autoscaling.maxReplicas | int | `2` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| defaultInternalImageConnector | string | `"test"` |  |
+| defaultInternalImageConnector | string | `"account.harnessImage"` |  |
 | fullnameOverride | string | `""` |  |
 | global.delegate.airgapped | bool | `false` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -50,7 +50,7 @@ A Helm chart for Kubernetes
 | leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | leImage.image.registry | string | `"docker.io"` |  |
 | leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| leImage.image.tag | string | `"1.16.1-linux-amd64"` |  |
+| leImage.image.tag | string | `"1.16.4"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -63,7 +63,7 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | probes.livenessProbe.failureThreshold | int | `5` |  |
-| probes.livenessProbe.httpGet.path | string | `"/health"` |  |
+| probes.livenessProbe.httpGet.path | string | `"/health/liveness"` |  |
 | probes.livenessProbe.httpGet.port | string | `"http"` |  |
 | probes.livenessProbe.periodSeconds | int | `5` |  |
 | probes.livenessProbe.timeoutSeconds | int | `2` |  |
