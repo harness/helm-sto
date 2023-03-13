@@ -111,7 +111,7 @@ sto-manager:
     repository: harness/stomanager-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79000-000"
+    tag: "79001-000"
     digest: ""
 
   waitForInitContainer:
@@ -200,7 +200,7 @@ sto-manager:
   probes:
     livenessProbe:
       httpGet:
-        path: /health
+        path: /health/liveness
         port: http
       timeoutSeconds: 2
       periodSeconds: 5
