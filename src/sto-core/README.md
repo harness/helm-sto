@@ -26,7 +26,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/stocore-signed"` |  |
-| image.tag | string | `"v1.31.3"` |  |
+| image.tag | string | `"v1.40.2"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |

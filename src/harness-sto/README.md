@@ -30,7 +30,7 @@ dependencies:
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.31.3"` |  |
+| sto-core.image.tag | string | `"v1.40.2"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
