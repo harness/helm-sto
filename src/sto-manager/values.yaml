@@ -58,7 +58,7 @@ image:
   repository: harness/stomanager-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "79200-000"
+  tag: "79002-000"
   digest: ""
   imagePullSecrets: []
 
@@ -85,7 +85,7 @@ addOnImage:
     registry: docker.io
     repository: harness/ci-addon
     pullPolicy: IfNotPresent
-    tag: "1.16.4"
+    tag: "1.16.6-linux-amd64"
     digest: ""
     imagePullSecrets: []
 
@@ -94,7 +94,7 @@ leImage:
     registry: docker.io
     repository: harness/ci-lite-engine
     pullPolicy: IfNotPresent
-    tag: "1.16.4"
+    tag: "1.16.6-linux-amd64"
     digest: ""
     imagePullSecrets: []
 
