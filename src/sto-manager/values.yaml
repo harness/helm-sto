@@ -228,3 +228,5 @@ affinity: {}
 #     APP_TOKEN_JWT_SECRET: test
 #     APP_INTERNAL_TOKEN_JWT_SECRET: test
 #     STO_SERVICE_GLOBAL_TOKEN: "token"
+
+additionalConfigs: {}
