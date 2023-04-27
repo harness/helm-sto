@@ -6,6 +6,7 @@ global:
   delegate:
     airgapped: false
   imagePullSecrets: []
+  stackDriverLoggingEnabled: false
   database:
     postgres:
       ## - installed = true if installed within cluster
