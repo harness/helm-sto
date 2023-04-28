@@ -12,3 +12,6 @@ data:
   APP_NG_URL: 'http://platform-service.{{ .Release.Namespace }}.svc.cluster.local:9005/api'
   APP_AUDIT_JWT_SECRET: test
   APP_DATABASE_RETRY_MIGRATION: "true"
+  {{- if .Values.additionalConfigs }}
+  {{- toYaml .Values.additionalConfigs | nindent 2 }}
+  {{- end }}
