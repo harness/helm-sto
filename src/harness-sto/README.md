@@ -2,7 +2,7 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
+![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart to your Helm chart:
 dependencies:
     - name: harness-sto
       repository: https://harness.github.io/helm-sto
-      version: 0.6.0
+      version: 0.7.0
 ```
 
 ## Values
