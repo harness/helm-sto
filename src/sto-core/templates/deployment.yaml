@@ -49,7 +49,7 @@ spec:
               secretKeyRef:
                 name: {{ .Values.stoAppHarnessToken.name }}
                 key: {{ .Values.stoAppHarnessToken.key }}
-          - name: APP_AUDIT_JWT_SECRET
+          - name: APP_NG_MANAGER_SECRET
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.stoAppAuditJWTSecret.name }}
