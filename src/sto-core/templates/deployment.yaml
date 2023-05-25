@@ -44,6 +44,7 @@ spec:
           image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{ include "harnesscommon.dbconnection.postgresEnv" . | nindent 10 }}
           - name: APP_HARNESS_TOKEN
             valueFrom:
               secretKeyRef:
@@ -60,9 +61,9 @@ spec:
                 name: {{ .Values.postgresPassword.name }}
                 key: {{ .Values.postgresPassword.key }}
           - name: APP_DATABASE_DATASOURCE
-            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "context" $) }}
           - name: APP_DB_MIGRATION_DATASOURCE
-            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "context" $) }}
           {{- if .Values.retryMigrations }}
           - name: APP_DATABASE_RETRY_MIGRATION
             value: "1"
