@@ -31,12 +31,14 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
+      {{- if .Values.global.database.postgres.installed }}
       - name: wait-for-postgres
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
           - "-lapp=postgres"
+      {{- end }}
       containers:
         - name: sto-core
           securityContext:
