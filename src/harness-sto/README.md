@@ -2,7 +2,7 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
+![Version: 0.6.3](https://img.shields.io/badge/Version-0.6.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart to your Helm chart:
 dependencies:
     - name: harness-sto
       repository: https://harness.github.io/helm-sto
-      version: 0.6.0
+      version: 0.6.3
 ```
 
 ## Values
@@ -30,7 +30,7 @@ dependencies:
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.40.2"` |  |
+| sto-core.image.tag | string | `"v1.40.3"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
@@ -63,7 +63,7 @@ dependencies:
 | sto-manager.addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.addOnImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| sto-manager.addOnImage.image.tag | string | `"1.16.4"` |  |
+| sto-manager.addOnImage.image.tag | string | `"1.16.6-linux-amd64"` |  |
 | sto-manager.affinity | object | `{}` |  |
 | sto-manager.autoscaling.enabled | bool | `true` |  |
 | sto-manager.autoscaling.maxReplicas | int | `2` |  |
@@ -77,7 +77,7 @@ dependencies:
 | sto-manager.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.image.registry | string | `"docker.io"` |  |
 | sto-manager.image.repository | string | `"harness/stomanager-signed"` |  |
-| sto-manager.image.tag | string | `"79001-000"` |  |
+| sto-manager.image.tag | string | `"79002-000"` |  |
 | sto-manager.ingress.annotations | object | `{}` |  |
 | sto-manager.ingress.className | string | `""` |  |
 | sto-manager.ingress.enabled | bool | `false` |  |
@@ -91,7 +91,7 @@ dependencies:
 | sto-manager.leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.leImage.image.registry | string | `"docker.io"` |  |
 | sto-manager.leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| sto-manager.leImage.image.tag | string | `"1.16.4"` |  |
+| sto-manager.leImage.image.tag | string | `"1.16.6-linux-amd64"` |  |
 | sto-manager.maxSurge | string | `"100%"` |  |
 | sto-manager.maxUnavailable | int | `0` |  |
 | sto-manager.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |

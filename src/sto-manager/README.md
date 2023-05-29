@@ -1,6 +1,6 @@
 # sto-manager
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
+![Version: 0.4.2](https://img.shields.io/badge/Version-0.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -19,7 +19,7 @@ A Helm chart for Kubernetes
 | addOnImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | addOnImage.image.registry | string | `"docker.io"` |  |
 | addOnImage.image.repository | string | `"harness/ci-addon"` |  |
-| addOnImage.image.tag | string | `"1.16.4"` |  |
+| addOnImage.image.tag | string | `"1.16.6-linux-amd64"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `true` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -27,6 +27,27 @@ A Helm chart for Kubernetes
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | defaultInternalImageConnector | string | `"account.harnessImage"` |  |
 | fullnameOverride | string | `""` |  |
+| global.database.mongo.extraArgs | string | `""` |  |
+| global.database.mongo.hosts | list | `[]` | provide default values if mongo.installed is set to false |
+| global.database.mongo.installed | bool | `true` |  |
+| global.database.mongo.passwordKey | string | `""` |  |
+| global.database.mongo.protocol | string | `"mongodb"` |  |
+| global.database.mongo.secretName | string | `""` |  |
+| global.database.mongo.userKey | string | `""` |  |
+| global.database.postgres.extraArgs | string | `""` |  |
+| global.database.postgres.hosts[0] | string | `"postgres:5432"` |  |
+| global.database.postgres.installed | bool | `true` |  |
+| global.database.postgres.passwordKey | string | `""` |  |
+| global.database.postgres.protocol | string | `"postgres"` |  |
+| global.database.postgres.secretName | string | `""` |  |
+| global.database.postgres.userKey | string | `""` |  |
+| global.database.timescaledb.extraArgs | string | `""` |  |
+| global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
+| global.database.timescaledb.installed | bool | `true` |  |
+| global.database.timescaledb.passwordKey | string | `""` |  |
+| global.database.timescaledb.protocol | string | `"jdbc:postgresql"` |  |
+| global.database.timescaledb.secretName | string | `""` |  |
+| global.database.timescaledb.userKey | string | `""` |  |
 | global.delegate.airgapped | bool | `false` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
@@ -35,7 +56,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/stomanager-signed"` |  |
-| image.tag | string | `"79200-000"` |  |
+| image.tag | string | `"79002-000"` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
@@ -50,7 +71,7 @@ A Helm chart for Kubernetes
 | leImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | leImage.image.registry | string | `"docker.io"` |  |
 | leImage.image.repository | string | `"harness/ci-lite-engine"` |  |
-| leImage.image.tag | string | `"1.16.4"` |  |
+| leImage.image.tag | string | `"1.16.6-linux-amd64"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
