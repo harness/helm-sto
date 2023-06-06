@@ -63,9 +63,9 @@ spec:
                 name: {{ .Values.postgresPassword.name }}
                 key: {{ .Values.postgresPassword.key }}
           - name: APP_DATABASE_DATASOURCE
-            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "context" $) }}
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "database" "harness-sto" "args" "search_path=sto" "context" $) }}
           - name: APP_DB_MIGRATION_DATASOURCE
-            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "context" $) }}
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "database" "harness-sto" "args" "search_path=sto" "context" $) }}
           {{- if .Values.retryMigrations }}
           - name: APP_DATABASE_RETRY_MIGRATION
             value: "1"
