@@ -125,7 +125,7 @@ dependencies:
 | sto-manager.s3UploadImage.image.digest | string | `""` |  |
 | sto-manager.s3UploadImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.s3UploadImage.image.registry | string | `"docker.io"` |  |
-| sto-manager.s3UploadImage.image.repository | string | `"bewithaman/s3"` |  |
+| sto-manager.s3UploadImage.image.repository | string | `"plugins/s3"` |  |
 | sto-manager.s3UploadImage.image.tag | string | `"latest"` |  |
 | sto-manager.securityContext | object | `{}` |  |
 | sto-manager.securityImage.image.digest | string | `""` |  |

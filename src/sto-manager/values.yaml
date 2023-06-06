@@ -102,7 +102,7 @@ leImage:
 s3UploadImage:
   image:
     registry: docker.io
-    repository: bewithaman/s3
+    repository: plugins/s3
     pullPolicy: IfNotPresent
     tag: latest
     digest: ""
