@@ -86,7 +86,7 @@ A Helm chart for Kubernetes
 | s3UploadImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | s3UploadImage.image.registry | string | `"docker.io"` |  |
 | s3UploadImage.image.repository | string | `"plugins/s3"` |  |
-| s3UploadImage.image.tag | string | `"latest"` |  |
+| s3UploadImage.image.tag | string | `"1.2.3"` |  |
 | securityContext | object | `{}` |  |
 | securityImage.image.digest | string | `""` |  |
 | securityImage.image.imagePullSecrets | list | `[]` |  |
