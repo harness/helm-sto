@@ -104,7 +104,7 @@ s3UploadImage:
     registry: docker.io
     repository: plugins/s3
     pullPolicy: IfNotPresent
-    tag: latest
+    tag: "1.2.3"
     digest: ""
     imagePullSecrets: []
 
