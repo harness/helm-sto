@@ -71,7 +71,6 @@ sto-core:
 
   resources:
     # limits:
-    #   cpu: 100m
     #   memory: 128Mi
     requests:
       cpu: 500m
@@ -243,7 +242,6 @@ sto-manager:
 
   resources:
     # limits:
-    #   cpu: 100m
     #   memory: 128Mi
     requests:
       cpu: 1
