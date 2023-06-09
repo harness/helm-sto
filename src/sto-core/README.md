@@ -1,6 +1,6 @@
 # sto-core
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.13.3](https://img.shields.io/badge/AppVersion-1.13.3-informational?style=flat-square)
+![Version: 0.5.2](https://img.shields.io/badge/Version-0.5.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.13.3](https://img.shields.io/badge/AppVersion-1.13.3-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -16,18 +16,20 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | additionalConfigs | object | `{}` |  |
 | affinity | object | `{}` |  |
-| autoscaling.enabled | bool | `true` |  |
+| autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
 | fullnameOverride | string | `""` |  |
 | global.imagePullSecrets | list | `[]` |  |
+| global.kubeVersion | string | `""` |  |
 | image.digest | string | `""` |  |
 | image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/stocore-signed"` |  |
-| image.tag | string | `"v1.40.2"` |  |
+| image.tag | string | `"v1.47.0"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
