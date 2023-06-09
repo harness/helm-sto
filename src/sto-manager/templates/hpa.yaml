@@ -14,5 +14,4 @@ spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
     {{ include "harnesscommon.hpa.metrics.apiVersion" . }}
-
 {{- end }}
