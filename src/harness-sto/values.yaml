@@ -127,7 +127,7 @@ sto-manager:
       registry: docker.io
       repository: harness/sto-plugin
       pullPolicy: IfNotPresent
-      tag: latest
+      tag: 1.13.0
       digest: ""
 
   addOnImage:
