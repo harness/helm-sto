@@ -2,7 +2,8 @@
 
 A Helm chart for harness STO module
 
-![Version: 0.6.2](https://img.shields.io/badge/Version-0.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
+![Version: 0.7.3](https://img.shields.io/badge/Version-0.7.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.79001](https://img.shields.io/badge/AppVersion-0.0.79001-informational?style=flat-square)
+
 
 ## Usage
 
@@ -12,7 +13,7 @@ Use the following dependency to add this chart to your Helm chart:
 dependencies:
     - name: harness-sto
       repository: https://harness.github.io/helm-sto
-      version: 0.6.2
+      version: 0.7.3
 ```
 
 ## Values
@@ -21,16 +22,17 @@ dependencies:
 |-----|------|---------|-------------|
 | global.loadbalancerURL | string | `"https://test"` |  |
 | sto-core.affinity | object | `{}` |  |
-| sto-core.autoscaling.enabled | bool | `true` |  |
+| sto-core.autoscaling.enabled | bool | `false` |  |
 | sto-core.autoscaling.maxReplicas | int | `100` |  |
 | sto-core.autoscaling.minReplicas | int | `1` |  |
-| sto-core.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| sto-core.autoscaling.targetCPU | string | `""` |  |
+| sto-core.autoscaling.targetMemory | string | `""` |  |
 | sto-core.fullnameOverride | string | `""` |  |
 | sto-core.image.digest | string | `""` |  |
 | sto-core.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-core.image.registry | string | `"docker.io"` |  |
 | sto-core.image.repository | string | `"harness/stocore-signed"` |  |
-| sto-core.image.tag | string | `"v1.40.2"` |  |
+| sto-core.image.tag | string | `"v1.47.0"` |  |
 | sto-core.maxSurge | string | `"100%"` |  |
 | sto-core.maxUnavailable | int | `0` |  |
 | sto-core.nameOverride | string | `""` |  |
@@ -65,10 +67,11 @@ dependencies:
 | sto-manager.addOnImage.image.repository | string | `"harness/ci-addon"` |  |
 | sto-manager.addOnImage.image.tag | string | `"1.16.4"` |  |
 | sto-manager.affinity | object | `{}` |  |
-| sto-manager.autoscaling.enabled | bool | `true` |  |
-| sto-manager.autoscaling.maxReplicas | int | `2` |  |
+| sto-manager.autoscaling.enabled | bool | `false` |  |
+| sto-manager.autoscaling.maxReplicas | int | `100` |  |
 | sto-manager.autoscaling.minReplicas | int | `1` |  |
-| sto-manager.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| sto-manager.autoscaling.targetCPU | string | `""` |  |
+| sto-manager.autoscaling.targetMemory | string | `""` |  |
 | sto-manager.defaultInternalImageConnector | string | `"account.harnessImage"` |  |
 | sto-manager.fullnameOverride | string | `""` |  |
 | sto-manager.global.delegate.airgapped | bool | `false` |  |
@@ -77,7 +80,7 @@ dependencies:
 | sto-manager.image.pullPolicy | string | `"IfNotPresent"` |  |
 | sto-manager.image.registry | string | `"docker.io"` |  |
 | sto-manager.image.repository | string | `"harness/stomanager-signed"` |  |
-| sto-manager.image.tag | string | `"79001-000"` |  |
+| sto-manager.image.tag | string | `"79400-000"` |  |
 | sto-manager.ingress.annotations | object | `{}` |  |
 | sto-manager.ingress.className | string | `""` |  |
 | sto-manager.ingress.enabled | bool | `false` |  |
