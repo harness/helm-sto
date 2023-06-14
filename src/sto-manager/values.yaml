@@ -43,6 +43,16 @@ global:
       userKey: ""
       passwordKey: ""
       extraArgs: ""
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
@@ -70,7 +80,7 @@ securityImage:
     registry: docker.io
     repository: harness/sto-plugin
     pullPolicy: IfNotPresent
-    tag: latest
+    tag: 1.13.0
     digest: ""
     imagePullSecrets: []
 addOnImage:
@@ -92,9 +102,9 @@ leImage:
 s3UploadImage:
   image:
     registry: docker.io
-    repository: bewithaman/s3
+    repository: plugins/s3
     pullPolicy: IfNotPresent
-    tag: latest
+    tag: "1.2.3"
     digest: ""
     imagePullSecrets: []
 mongoSecrets:

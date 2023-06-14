@@ -2,6 +2,7 @@
 
 ![Version: 0.5.2](https://img.shields.io/badge/Version-0.5.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.778.0](https://img.shields.io/badge/AppVersion-1.778.0-informational?style=flat-square)
 
+
 A Helm chart for Kubernetes
 
 ## Requirements
@@ -43,6 +44,13 @@ A Helm chart for Kubernetes
 | global.database.postgres.protocol | string | `"postgres"` |  |
 | global.database.postgres.secretName | string | `""` |  |
 | global.database.postgres.userKey | string | `""` |  |
+| global.database.redis.extraArgs | string | `""` |  |
+| global.database.redis.hosts | list | `["redis:6379"]` | provide default values if redis.installed is set to false |
+| global.database.redis.installed | bool | `true` |  |
+| global.database.redis.passwordKey | string | `"redis-password"` |  |
+| global.database.redis.protocol | string | `"redis"` |  |
+| global.database.redis.secretName | string | `"redis-secret"` |  |
+| global.database.redis.userKey | string | `"redis-user"` |  |
 | global.database.timescaledb.extraArgs | string | `""` |  |
 | global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
 | global.database.timescaledb.installed | bool | `true` |  |
@@ -109,15 +117,15 @@ A Helm chart for Kubernetes
 | s3UploadImage.image.imagePullSecrets | list | `[]` |  |
 | s3UploadImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | s3UploadImage.image.registry | string | `"docker.io"` |  |
-| s3UploadImage.image.repository | string | `"bewithaman/s3"` |  |
-| s3UploadImage.image.tag | string | `"latest"` |  |
+| s3UploadImage.image.repository | string | `"plugins/s3"` |  |
+| s3UploadImage.image.tag | string | `"1.2.3"` |  |
 | securityContext | object | `{}` |  |
 | securityImage.image.digest | string | `""` |  |
 | securityImage.image.imagePullSecrets | list | `[]` |  |
 | securityImage.image.pullPolicy | string | `"IfNotPresent"` |  |
 | securityImage.image.registry | string | `"docker.io"` |  |
 | securityImage.image.repository | string | `"harness/sto-plugin"` |  |
-| securityImage.image.tag | string | `"latest"` |  |
+| securityImage.image.tag | string | `"1.13.0"` |  |
 | service.grpcport | int | `9979` |  |
 | service.port | int | `7090` |  |
 | service.type | string | `"ClusterIP"` |  |
