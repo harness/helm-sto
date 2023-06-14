@@ -21,6 +21,23 @@ entries:
   sto:
   - apiVersion: v2
     appVersion: 0.0.79001
+    created: "2023-06-14T19:00:00.833609656Z"
+    dependencies:
+    - name: sto-core
+      repository: file://../sto-core
+      version: 0.5.x
+    - name: sto-manager
+      repository: file://../sto-manager
+      version: 0.5.x
+    description: A Helm chart for harness STO module
+    digest: 9744c57e34caab6723738f5f602150e861b91125f73e727c1bbd6e467f24385d
+    name: sto
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto/releases/download/sto-0.7.3/sto-0.7.3.tgz
+    version: 0.7.3
+  - apiVersion: v2
+    appVersion: 0.0.79001
     created: "2023-05-29T16:19:58.592661682Z"
     dependencies:
     - name: sto-core
@@ -277,6 +294,20 @@ entries:
   sto-core:
   - apiVersion: v2
     appVersion: 1.13.3
+    created: "2023-06-14T19:00:01.026499599Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: f9a34c210b1050aa4bc5e8e8f064a0e658edaaa567dd1dd529ec43e8a78202d1
+    name: sto-core
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto/releases/download/sto-core-0.5.2/sto-core-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v2
+    appVersion: 1.13.3
     created: "2023-05-29T16:19:58.76879621Z"
     dependencies:
     - name: harness-common
@@ -376,6 +407,20 @@ entries:
   sto-manager:
   - apiVersion: v2
     appVersion: 1.778.0
+    created: "2023-06-14T19:00:01.336966473Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 31e1793803606f19353ceb7fe372aeb9f0526761517f3380883714c60d5ad5db
+    name: sto-manager
+    type: application
+    urls:
+    - https://github.com/harness/helm-sto/releases/download/sto-manager-0.5.2/sto-manager-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v2
+    appVersion: 1.778.0
     created: "2023-05-29T16:19:58.946211372Z"
     dependencies:
     - name: harness-common
@@ -472,4 +517,4 @@ entries:
     urls:
     - https://github.com/harness/helm-sto/releases/download/sto-manager-0.2.18/sto-manager-0.2.18.tgz
     version: 0.2.18
-generated: "2023-05-29T16:19:58.946489669Z"
+generated: "2023-06-14T19:00:01.337136055Z"
