@@ -212,3 +212,24 @@ affinity: {}
 #     APP_INTERNAL_TOKEN_JWT_SECRET: test
 #     STO_SERVICE_GLOBAL_TOKEN: "token"
 additionalConfigs: {}
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:
