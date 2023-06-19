@@ -41,9 +41,10 @@ data:
   ENABLE_DASHBOARD_TIMESCALE: "true"
   TIMESCALE_URI: 'jdbc:postgresql://timescaledb-single-chart.{{ .Release.Namespace }}:5432/harness'
   CACHE_BACKEND: REDIS
-  CACHE_CONFIG_USE_SENTINEL: "true"
+  CACHE_CONFIG_USE_SENTINEL: {{ .Values.global.database.redis.installed | quote }}
   CACHE_CONFIG_SENTINEL_MASTER_NAME: "harness-redis"
-  CACHE_CONFIG_REDIS_SENTINELS: 'redis://redis-sentinel-harness-announce-0.{{ .Release.Namespace  }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace  }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379'
+  CACHE_CONFIG_REDIS_SENTINELS: {{ include "harnesscommon.dbconnection.redisConnection" (dict "context" .Values.global.database.redis) }}
+  CACHE_CONFIG_REDIS_URL: {{ include "harnesscommon.dbconnection.redisConnection" (dict "context" .Values.global.database.redis) }}
   {{- if .Values.scalabilityTest}}
   PLAN_CREATOR_SERVICE_EXECUTOR_POOL_CORE_SIZE: "150"
   PLAN_CREATOR_SERVICE_EXECUTOR_POOL_MAX_SIZE: "200"
