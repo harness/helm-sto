@@ -31,12 +31,14 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
+      {{- if .Values.global.database.postgres.installed }}
       - name: wait-for-postgres
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
           - "-lapp=postgres"
+      {{- end }}
       containers:
         - name: sto-core
           securityContext:
@@ -44,25 +46,34 @@ spec:
           image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{ include "harnesscommon.dbconnection.postgresEnv" . | nindent 10 }}
           - name: APP_HARNESS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.stoAppHarnessToken.name }}
                 key: {{ .Values.stoAppHarnessToken.key }}
-          - name: APP_AUDIT_JWT_SECRET
+          - name: APP_NG_MANAGER_SECRET
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.stoAppAuditJWTSecret.name }}
                 key: {{ .Values.stoAppAuditJWTSecret.key }}
+          {{- if .Values.global.database.postgres.installed }}
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.postgresPassword.name }}
                 key: {{ .Values.postgresPassword.key }}
+          {{- else }}
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.global.database.postgres.secretName }}
+                key: {{ .Values.global.database.postgres.passwordKey }}
+          {{- end }}
           - name: APP_DATABASE_DATASOURCE
-            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "database" "" "args" "" "context" $) }}
           - name: APP_DB_MIGRATION_DATASOURCE
-            value: "postgres://postgres:$(DB_PASSWORD)@postgres:5432"
+            value: {{ include "harnesscommon.dbconnection.postgresConnection" (dict "database" "" "args" "" "context" $) }}
           {{- if .Values.retryMigrations }}
           - name: APP_DATABASE_RETRY_MIGRATION
             value: "1"

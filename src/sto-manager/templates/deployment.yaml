@@ -68,6 +68,7 @@ spec:
               containerPort: {{.Values.service.grpcport}}
               protocol: TCP
           env:
+            {{- include "harnesscommon.dbconnection.redisEnv" (dict "context" .Values.global.database.redis "userVariableName" "EVENTS_FRAMEWORK_REDIS_USERNAME" "passwordVariableName" "EVENTS_FRAMEWORK_REDIS_PASSWORD") | indent 12 }}
             - name: STO_SERVICE_GLOBAL_TOKEN
               valueFrom:
                 secretKeyRef:
