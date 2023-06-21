@@ -2,6 +2,11 @@ global:
   kubeVersion: ""
   imagePullSecrets: []
 
+  database:
+    postgres:
+      ## - installed = true if installed within cluster
+      installed: true
+
 # Default values for sto-core.
 # This is a YAML-formatted file.
 replicaCount: 1
