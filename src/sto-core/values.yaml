@@ -1,5 +1,11 @@
 global:
+  kubeVersion: ""
   imagePullSecrets: []
+
+  database:
+    postgres:
+      ## - installed = true if installed within cluster
+      installed: true
 
 # Default values for sto-core.
 # This is a YAML-formatted file.
@@ -14,7 +20,7 @@ image:
   repository: harness/stocore-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.40.2"
+  tag: "v1.47.0"
   digest: ""
   imagePullSecrets: []
 
@@ -71,18 +77,17 @@ service:
 
 resources:
   # limits:
-  #   cpu: 100m
   #   memory: 128Mi
   requests:
     cpu: 500m
     memory: 500Mi
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetCPU: ""
+  targetMemory: ""
 
 nodeSelector: {}
 
@@ -91,3 +96,24 @@ tolerations: []
 affinity: {}
 
 additionalConfigs: {}
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:

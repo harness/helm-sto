@@ -43,26 +43,30 @@ global:
       userKey: ""
       passwordKey: ""
       extraArgs: ""
-
-
-
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
-
 java:
   memory: 2500
   memoryLimit: 600
-
 image:
   registry: docker.io
   repository: harness/stomanager-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "79200-000"
+  tag: "79400-000"
   digest: ""
   imagePullSecrets: []
-
 waitForInitContainer:
   image:
     registry: docker.io
@@ -71,7 +75,6 @@ waitForInitContainer:
     tag: "latest"
     digest: ""
     imagePullSecrets: []
-
 securityImage:
   image:
     registry: docker.io
@@ -80,7 +83,6 @@ securityImage:
     tag: 1.13.0
     digest: ""
     imagePullSecrets: []
-
 addOnImage:
   image:
     registry: docker.io
@@ -89,7 +91,6 @@ addOnImage:
     tag: "1.16.4"
     digest: ""
     imagePullSecrets: []
-
 leImage:
   image:
     registry: docker.io
@@ -98,7 +99,6 @@ leImage:
     tag: "1.16.4"
     digest: ""
     imagePullSecrets: []
-
 s3UploadImage:
   image:
     registry: docker.io
@@ -107,7 +107,6 @@ s3UploadImage:
     tag: "1.2.3"
     digest: ""
     imagePullSecrets: []
-
 mongoSecrets:
   userName:
     name: harness-secrets
@@ -115,20 +114,15 @@ mongoSecrets:
   password:
     name: mongodb-replicaset-chart
     key: mongodb-root-password
-
 timescaleSecret:
   password:
     name: harness-secrets
     key: timescaledbPostgresPassword
-
 nameOverride: ""
 fullnameOverride: ""
-
 ngServiceAccount: "test"
 redislabsCATruststore: "test"
-
 defaultInternalImageConnector: "account.harnessImage"
-
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
@@ -137,19 +131,17 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: "harness-default"
-
 podAnnotations: {}
-
 podSecurityContext: {}
-  # fsGroup: 2000
+# fsGroup: 2000
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
 
 probes:
   livenessProbe:
@@ -173,18 +165,16 @@ probes:
     timeoutSeconds: 2
     periodSeconds: 10
     failureThreshold: 25
-
 service:
   type: ClusterIP
   port: 7090
   grpcport: 9979
-
 ingress:
   enabled: false
   className: ""
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
   hosts:
     - host: chart-example.local
       paths:
@@ -194,32 +184,24 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
 resources:
   # limits:
-  #   cpu: 100m
   #   memory: 128Mi
   requests:
     cpu: 1
     memory: 3Gi
-
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
-  maxReplicas: 2
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
+  maxReplicas: 100
+  targetCPU: ""
+  targetMemory: ""
 stoServiceGlobalToken:
   name: harness-secrets
   key: stoAppHarnessToken
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
-
 # Commented out at request of Will as not needed.
 # env:
 #   secrets:
@@ -228,5 +210,25 @@ affinity: {}
 #     APP_TOKEN_JWT_SECRET: test
 #     APP_INTERNAL_TOKEN_JWT_SECRET: test
 #     STO_SERVICE_GLOBAL_TOKEN: "token"
-
 additionalConfigs: {}
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:
