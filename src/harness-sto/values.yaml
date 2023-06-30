@@ -151,7 +151,7 @@ sto-manager:
       registry: docker.io
       repository: plugins/s3
       pullPolicy: IfNotPresent
-      tag: "1.2.0"
+      tag: "1.2.3"
       digest: ""
 
   mongoSecrets:
