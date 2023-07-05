@@ -43,6 +43,8 @@ global:
       userKey: ""
       passwordKey: ""
       extraArgs: ""
+      certName: ""
+      certKey: ""
     redis:
       installed: true
       protocol: "redis"
@@ -186,7 +188,6 @@ ingress:
   #      - chart-example.local
 resources:
   # limits:
-  #   cpu: 100m
   #   memory: 128Mi
   requests:
     cpu: 1
