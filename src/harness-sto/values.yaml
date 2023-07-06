@@ -15,7 +15,7 @@ sto-core:
     repository: harness/stocore-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v1.47.0"
+    tag: "v1.57.4"
     digest: ""
 
   ## -- initContainer for Harness application waits
@@ -110,7 +110,7 @@ sto-manager:
     repository: harness/stomanager-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79400-000"
+    tag: "79800-000"
     digest: ""
 
   waitForInitContainer:
@@ -134,7 +134,7 @@ sto-manager:
       registry: docker.io
       repository: harness/ci-addon
       pullPolicy: IfNotPresent
-      tag: "1.16.4"
+      tag: "1.16.19"
       digest: ""
 
   leImage:
@@ -142,7 +142,7 @@ sto-manager:
       registry: docker.io
       repository: harness/ci-lite-engine
       pullPolicy: IfNotPresent
-      tag: "1.16.4"
+      tag: "1.16.19"
       digest: ""
 
   s3UploadImage:
