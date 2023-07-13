@@ -66,7 +66,7 @@ image:
   repository: harness/stomanager-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "79400-000"
+  tag: "79900-000"
   digest: ""
   imagePullSecrets: []
 waitForInitContainer:
@@ -213,19 +213,16 @@ affinity: {}
 #     APP_INTERNAL_TOKEN_JWT_SECRET: test
 #     STO_SERVICE_GLOBAL_TOKEN: "token"
 additionalConfigs: {}
-
 # extraVolumes:
 #   - name: volume-test
 #     configMap:
 #       name: test-config
 #       # readOnly: true
 extraVolumes: []
-
 # extraVolumeMounts:
 #   - name: volume-test
 #     mountPath: /opt/harness/config
 extraVolumeMounts: []
-
 lifecycleHooks: {}
 # lifecycleHooks:
 #   postStart:
