@@ -55,8 +55,8 @@ global:
       userKey: "redis-user"
       passwordKey: "redis-password"
       extraArgs: ""
-    opa:
-      enabled: false
+  opa:
+    enabled: false
 replicaCount: 1
 maxSurge: 100%
 maxUnavailable: 0
