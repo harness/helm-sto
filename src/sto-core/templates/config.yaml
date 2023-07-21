@@ -10,7 +10,7 @@ data:
   APP_NG_MANAGER_URL: 'http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/api'
   APP_TOKEN_JWT_SECRET: "HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU="
   APP_INTERNAL_TOKEN_JWT_SECRET: "dOkdsVqdRPPRJG31XU0qY4MPqmBBMk0PTAGIKM6O7TGqhjyxScIdJe80mwh5Yb5zF3KxYBHw6B3Lfzlq"
-  APP_CORS_ALLOWED_ORIGINS: "*.harness.io"
+  APP_CORS_ALLOWED_ORIGINS: '{{ .Values.allowedOrigins | default .Values.global.loadbalancerURL }}'
   {{- if .Values.additionalConfigs }}
   {{- toYaml .Values.additionalConfigs | nindent 2 }}
   {{- end }}

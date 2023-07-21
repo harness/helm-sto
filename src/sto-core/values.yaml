@@ -1,11 +1,14 @@
 global:
   kubeVersion: ""
+  loadbalancerURL: ""
   imagePullSecrets: []
 
   database:
     postgres:
       ## - installed = true if installed within cluster
       installed: true
+
+allowedOrigins: ""
 
 # Default values for sto-core.
 # This is a YAML-formatted file.
