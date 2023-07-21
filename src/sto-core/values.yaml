@@ -8,7 +8,7 @@ global:
       ## - installed = true if installed within cluster
       installed: true
 
-allowedOrigins: ""
+allowedOrigins: "*"
 
 # Default values for sto-core.
 # This is a YAML-formatted file.
